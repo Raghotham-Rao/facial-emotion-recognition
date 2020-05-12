@@ -29,6 +29,7 @@ class EmotionRecognizer:
 
     def getEmotion(self, face):
         prediction = self.model.predict(face)
+        print(prediction)
         emotion = self.emotions[np.where(prediction == np.amax(prediction))[1][0]]
         # print(*(np.where(prediction == np.amax(prediction))), sep="\t")
         return emotion
