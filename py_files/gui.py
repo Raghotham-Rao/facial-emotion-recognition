@@ -12,18 +12,18 @@ class App():
         self.recognizer = FaceEmoCog()
         self.window = Tk()
         self.window.title("Facial Emotion Recognition")
-        self.window.geometry("1200x800")
+        self.window.geometry("800x800")
         self.homeScreen()
         self.img_path = "../no_image.jpg"
 
 
     def homeScreen(self):
-        self.frame = Frame(self.window, bg="#004d66", width=1200, height=800)
+        self.frame = Frame(self.window, bg="#004d66", width=800, height=800)
         self.frame.pack()
-        self.title = Label(self.frame, font=("Arc", 30, "bold"), text="Facial Emotion Recognition", fg="#ff6600", bg="#004d66")
-        self.title.place(relx=0.22, rely=0.4)
-        next_button = Label(self.frame, text="Try it", font=("ubuntu", 16), fg="#ff6600", bg="#004d66", cursor="hand1")
-        next_button.place(relx=0.48, rely=0.50)
+        self.title = Label(self.frame, font=("OpenSansCondensedLight", 40, "bold"), text="Facial Emotion Recognition", fg="#ff6600", bg="#004d66")
+        self.title.place(relx=0.2, rely=0.35)
+        next_button = Label(self.frame, text="Try it", font=("OpenSansCondensedLight", 20, "bold"), fg="#ff6600", bg="#004d66", cursor="hand1")
+        next_button.place(relx=0.48, rely=0.5)
         next_button.bind("<Button-1>", self.secondScreen)
 
     
@@ -36,28 +36,28 @@ class App():
         top_frame = Frame(self.frame, bg="#004d66", width=1200, height=60)
         top_frame.place(relx=0, rely=0)
 
-        title=Label(top_frame, font=("Arc", 30, "bold"), text="Facial Emotion Recognition", fg="#ff6600", bg="#004d66")
-        title.place(relx=0.22, rely=0.08)
+        title=Label(top_frame, font=("OpenSansCondensedLight", 30, "bold"), text="Facial Emotion Recognition", fg="#ff6600", bg="#004d66")
+        title.place(relx=0.17, rely=0.08)
 
         bottom_frame = Frame(self.frame, width=1200, height= 800 - 60)
         bottom_frame.place(relx=0, rely=0.1)
 
         self.img_container = Frame(bottom_frame, highlightbackground="#004d66", highlightcolor="#004d66", highlightthickness=2, width=600, height=600, bg="#000")
-        self.img_container.place(relx=0.01, rely=0.01)
+        self.img_container.place(relx=0.08, rely=0.01)
 
         self.displayImage()
 
-        browse_files_label = Label(bottom_frame, font=("ubuntu", 16), cursor="hand1", fg="#ff6600", text="Choose File")
+        browse_files_label = Label(bottom_frame, font=("OpenSansCondensedLight", 16, "bold"), cursor="hand1", fg="#ff6600", text="Choose File")
         browse_files_label.bind("<Button-1>", self.filePicker)
-        browse_files_label.place(relx=0.01, rely=0.85)
+        browse_files_label.place(relx=0.08, rely=0.85)
 
-        live_cam_label = Label(bottom_frame, font=("ubuntu", 16), cursor="hand1", fg="#ff6600", text="Live Camera")
+        live_cam_label = Label(bottom_frame, font=("OpenSansCondensedLight", 16, "bold"), cursor="hand1", fg="#ff6600", text="Live Camera")
         live_cam_label.bind("<Button-1>", self.triggerLiveCam)
-        live_cam_label.place(relx=0.15, rely=0.85)
+        live_cam_label.place(relx=0.22, rely=0.85)
 
-        predict_label = Label(bottom_frame, font=("ubuntu", 16), cursor="hand1", fg="#ff6600", text="Predict")
+        predict_label = Label(bottom_frame, font=("OpenSansCondensedLight", 16, "bold"), cursor="hand1", fg="#ff6600", text="Predict")
         predict_label.bind("<Button-1>", self.predictEmotions)
-        predict_label.place(relx=0.4, rely=0.85)
+        predict_label.place(relx=0.52, rely=0.85)
 
 
     def predictEmotions(self, event):
@@ -67,7 +67,7 @@ class App():
 
     
     def filePicker(self, event):
-        filename = filedialog.askopenfilename(initialdir=".", title="Select file", filetypes=(("jpeg files","*.jpg"), ("png files","*.png"), ("mp4 files", "*.mp4")))
+        filename = filedialog.askopenfilename(initialdir="/home/raghu/Desktop/final-year-project/data/ppt images", title="Select file", filetypes=(("jpeg files","*.jpg"), ("png files","*.png"), ("mp4 files", "*.mp4")))
         extension = filename.split('.')[-1]
         if extension in 'jpeg, jpg, png'.split(', '):
             self.img_path = filename
