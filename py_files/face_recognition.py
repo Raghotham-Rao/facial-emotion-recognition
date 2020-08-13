@@ -5,9 +5,9 @@ import cv2
 
 class FaceRecognizer:
 
-    def __init__(self):
+    def __init__(self, config):
         # creating a reference to cascade
-        self.cascade = cv2.CascadeClassifier('../haar_cascade/haar_cascade_frontalface.xml')
+        self.cascade = cv2.CascadeClassifier(config["path_to_haar_cascade"])
 
     def getFaces(self, img):
         # converting the image to gray

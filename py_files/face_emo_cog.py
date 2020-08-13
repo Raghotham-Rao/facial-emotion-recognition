@@ -10,11 +10,9 @@ import io
 
 class FaceEmoCog:
 
-    def __init__(self):
-        self.recognizer = FaceRecognizer()
-        #self.e_recognizer = EmotionRecognizer('../models/CK+100x100.h5')
-        self.e_recognizer = EmotionRecognizer('../models/FER_june2.h5')
-        #self.e_recognizer2 = EmotionRecognizer('../models/5L-train95-val67-test66.41.h5')
+    def __init__(self, config):
+        self.recognizer = FaceRecognizer(config)
+        self.e_recognizer = EmotionRecognizer(config["path_to_recognizer"])    
         self.emotions = ['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral']
 
 

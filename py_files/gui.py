@@ -1,20 +1,21 @@
 from tkinter import filedialog
 from tkinter import *
 from PIL import Image, ImageTk
-#from face_emo_cog import FaceEmoCog
+from face_emo_cog import FaceEmoCog
 import numpy as np
 import cv2
+from config import config
 
 
 class App():
 
     def __init__(self):
-        #self.recognizer = FaceEmoCog()
+        self.recognizer = FaceEmoCog(config)
         self.window = Tk()
         self.window.title("Facial Emotion Recognition")
         self.window.geometry("600x600")
         self.homeScreen()
-        self.img_path = "C:\\Users\\ragho\\OneDrive\\Desktop\\Raghu docs\\facial-emotion-recognition-raghotham\\no_image.jpg"
+        self.img_path = config["no_img_path"]
 
 
     def homeScreen(self):
@@ -84,7 +85,7 @@ class App():
     
     def displayVideo(self, path="", live_cam=True):
         self.photo.destroy()
-        self.img_path = "C:\\Users\\ragho\\OneDrive\\Desktop\\Raghu docs\\facial-emotion-recognition-raghotham\\no_image.jpg"
+        self.img_path = config["no_img_path"]
         self.displayImage()
         if(live_cam):
             self.recognizer.recognize_within_video(live_cam = live_cam)
