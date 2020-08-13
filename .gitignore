@@ -1,6 +1,5 @@
 data/
 dummy_data/
-models/
 emoticons/
 py_files/__pycache__/
 .ipynb_checkpoints/
