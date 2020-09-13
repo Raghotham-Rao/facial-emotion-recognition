@@ -4,3 +4,4 @@ emoticons/
 py_files/__pycache__/
 py_files/config.py
 .ipynb_checkpoints/
+test/

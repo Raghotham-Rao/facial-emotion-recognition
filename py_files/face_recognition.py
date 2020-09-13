@@ -14,7 +14,7 @@ class FaceRecognizer:
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
 
         # recognizing the faces in the image
-        faces = self.cascade.detectMultiScale(gray, 1.2, minNeighbors= 2, minSize= (10, 10))
+        faces = self.cascade.detectMultiScale(gray, 1.2, minNeighbors=3, minSize= (10, 10))
 
         return faces
 

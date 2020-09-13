@@ -109,6 +109,7 @@ class FaceEmoCog:
         try:
             plt.cla()
             plt.bar(self.emotions, predictions[0].tolist()[0], color="#0066ff")
+            plt.ylim(0, 1)
             plt.title('Emotion Chart', fontdict={'fontsize': '20'})
             plt.xlabel('Emotion Classes', fontdict={'fontsize': '20'})
             plt.ylabel('Value', fontdict={'fontsize': '20'})
